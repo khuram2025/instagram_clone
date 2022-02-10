@@ -6,9 +6,27 @@ import 'package:instagram_flutter/components/round_password_filed.dart';
 import 'package:instagram_flutter/components/rounded_button.dart';
 import 'package:instagram_flutter/screens/login/components/backgroundloing.dart';
 import 'package:instagram_flutter/screens/signup/signup.dart';
+import 'package:instagram_flutter/widgets/text_field_input.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
+
+  @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +43,10 @@ class Body extends StatelessWidget {
             SizedBox(height: size.height*0.03,),
             RoundInputField(
                 hintText: "Your Email",
-                onChanged: (value){}),
+              textEditingController: _emailController,),
             RoundedPasswordField(
-              onChanged: (value){},
+
+              textEditingController: _passwordController,
             ),
             RoundedButton(
               text: "Login",

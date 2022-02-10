@@ -2,33 +2,40 @@ import 'package:flutter/material.dart';
 import 'package:instagram_flutter/components/text_field_container.dart';
 import 'package:instagram_flutter/constants.dart';
 
-class RoundInputField extends StatelessWidget {
+class RoundInputField extends StatefulWidget {
   final String hintText;
   final IconData icon;
-  final ValueChanged<String> onChanged;
+  final TextEditingController textEditingController;
 
 
   const RoundInputField({
     Key? key,
     required this.hintText,
     this.icon =Icons.person,
-    required this.onChanged
+    required this.textEditingController,
   }) : super(key: key);
+
+  @override
+  State<RoundInputField> createState() => _RoundInputFieldState();
+}
+
+class _RoundInputFieldState extends State<RoundInputField> {
+
 
   @override
   Widget build(BuildContext context) {
     return TextFieldContainer(
       child: TextField(
-        onChanged: onChanged,
         cursorColor: kPrimaryColor,
         decoration: InputDecoration(
           icon: Icon(
-            icon,
+            widget.icon,
             color: kPrimaryColor,
           ),
-          hintText: hintText,
-          border: InputBorder.none
+          hintText: widget.hintText,
+          border: InputBorder.none,
         ),
+        keyboardType: TextInputType.emailAddress,
       ),
     );
   }
