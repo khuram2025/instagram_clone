@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_flutter/constants.dart';
+import 'package:instagram_flutter/crud/scrud.dart';
 import 'package:instagram_flutter/responsive/mobileScreenLayout.dart';
 import 'package:instagram_flutter/responsive/responsive_layout.dart';
 import 'package:instagram_flutter/responsive/webScreenLayout.dart';
@@ -35,7 +36,6 @@ void main() async {
 
 }
 
-
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -43,8 +43,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Instagram Clone',
-      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: mobileBackgroundColor),
-      home: ResponsiveLayout(mobileScreenLayout: MobileScreenLayout(), webScreenLayout:WebScreenLayout()),
+      // theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: mobileBackgroundColor),
+      home: LoginScreen(),
+      // home: ResponsiveLayout(mobileScreenLayout: MobileScreenLayout(), webScreenLayout:WebScreenLayout()),
     );
   }
 }

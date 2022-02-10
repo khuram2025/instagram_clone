@@ -1,12 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
 
 class CrudHome extends StatefulWidget {
   const CrudHome({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _CrudHomeState createState() => _CrudHomeState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _CrudHomeState extends State<CrudHome> {
   // text fields' controllers
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _priceController = TextEditingController();

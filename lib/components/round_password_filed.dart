@@ -3,15 +3,23 @@ import 'package:instagram_flutter/components/text_field_container.dart';
 import 'package:instagram_flutter/constants.dart';
 
 
-class RoundedPasswordField extends StatelessWidget {
-  final ValueChanged<String> onChanged;
-  const RoundedPasswordField({Key? key, required this.onChanged}) : super(key: key);
+class RoundedPasswordField extends StatefulWidget {
 
+  final TextEditingController textEditingController;
+  const RoundedPasswordField({Key? key,
+
+    required this.textEditingController}) : super(key: key);
+
+  @override
+  State<RoundedPasswordField> createState() => _RoundedPasswordFieldState();
+}
+
+class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
   @override
   Widget build(BuildContext context) {
     return TextFieldContainer(child: TextField(
       obscureText: true,
-      onChanged: onChanged,
+
       cursorColor: kPrimaryColor,
       decoration: InputDecoration(
         hintText: "Password",
